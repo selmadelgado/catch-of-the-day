@@ -6,12 +6,17 @@ import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
 
 
+
 class App extends React.Component {
 
     state = {
         fishes: {},
         order: {}
     };
+
+    componentDidMount() {
+        console.log('MOUNTED!');
+    }
 
     addFish = fish => {
        // 1. Take a copy of the existing state
