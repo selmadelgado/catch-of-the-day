@@ -7,7 +7,7 @@ import Fish from './Fish';
 import base from '../base';
 
 class App extends React.Component {
-
+    
     state = {
         fishes: {},
         order: {}
@@ -19,15 +19,15 @@ class App extends React.Component {
             context: this,
             state: 'fishes'
         });
-    }
+    };
 
     componentWillUnmount(){
         base.removeBinding(this.ref);
-    }
+    };
 
     addFish = fish => {
        // 1. Take a copy of the existing state
-       const fishes = {...this.state.fishes}
+       const fishes = { ...this.state.fishes };
 
        // 2. Add our new fish to that fishes variable
        fishes[`fish${Date.now()}`] = fish;
@@ -37,12 +37,12 @@ class App extends React.Component {
     };
 
     loadSampleFishes = () => {
-       this.setState({ fishes: sampleFishes});
+       this.setState({ fishes: sampleFishes });
     };
 
     addToOrder = (key) => {
         // 1. take a copy of state
-        const order = { ...this.state.order};
+        const order = { ...this.state.order };
         // 2. Either add to the order or update the number in our order
         order[key] = order[key] + 1 || 1;
         // 3. Call setState to update our state object
